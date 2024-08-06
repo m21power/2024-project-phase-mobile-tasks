@@ -1,29 +1,29 @@
 class Product {
-  String productName = '';
-  String productDescr = '';
-  String productPrice = '';
-  
+  String _productName = '';
+  String _productDescr = '';
+  String _productPrice = '';
+
   void setProductName(productName) {
-    this.productName = productName;
+    this._productName = productName;
   }
 
   void setProductDescr(productDescr) {
-    this.productDescr = productDescr;
+    this._productDescr = productDescr;
   }
 
   void setProductPrice(productPrice) {
-    this.productPrice = productPrice;
+    this._productPrice = productPrice;
   }
 
   String getProductName() {
-    return productName;
+    return _productName;
   }
 
   String getProductDescr() {
-    return productDescr;
+    return _productDescr;
   }
 
   String getProductPrice() {
-    return productPrice;
+    return _productPrice;
   }
 }

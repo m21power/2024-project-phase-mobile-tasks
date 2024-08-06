@@ -20,15 +20,13 @@ class ProductManager {
   }
 
   void viewAllProduct() {
-    var product;
     for (int i = 0; i < len; i++) {
-      product = products[i];
       print("Product Name: ");
-      print(product.productName);
-      print("Product Description: ");
-      print(product.productDescr);
-      print("Product Price: ");
-      print(product.productPrice);
+        print(products[i].getProductName());
+        print("Product Description: ");
+        print(products[i].getProductDescr());
+        print("Product Price: ");
+        print(products[i].getProductPrice());
       print("**********************************************");
     }
   }
@@ -37,13 +35,13 @@ class ProductManager {
     print("Enter the name of the Product: ");
     String? productName = stdin.readLineSync();
     for (int i = 0; i < len; i++) {
-      if (productName == products[i].productName) {
+      if (productName == products[i].getProductName()) {
         print("Product Name: ");
-        print(products[i].productName);
+        print(products[i].getProductName());
         print("Product Description: ");
-        print(products[i].productDescr);
+        print(products[i].getProductDescr());
         print("Product Price: ");
-        print(products[i].productPrice);
+        print(products[i].getProductPrice());
         return;
       }
     }
@@ -54,7 +52,7 @@ class ProductManager {
     print("Enter the name of the Product: ");
     String? productName = stdin.readLineSync();
     for (int i = 0; i < len; i++) {
-      if (productName == products[i].productName) {
+      if (productName == products[i].getProductName()) {
         var choice;
         do {
           print("Press 0 for changing name: ");
@@ -86,7 +84,7 @@ class ProductManager {
     var product;
     for (int i = 0; i < len; i++) {
       product = products[i];
-      if (productName == product.productName) {
+      if (productName == product.getProductName) {
         products.removeAt(i);
         len = products.length;
         return;
