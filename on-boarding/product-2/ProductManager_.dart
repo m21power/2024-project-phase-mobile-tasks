@@ -11,7 +11,10 @@ class ProductManager {
     String? productDescr = stdin.readLineSync();
     print("Enter the Price of the product: ");
     String? productPrice = stdin.readLineSync();
-    var product = new Product(productName, productDescr, productPrice);
+    var product = new Product();
+    product.setProductName(productName);
+    product.setProductDescr(productDescr);
+    product.setProductPrice(productPrice);
     products.add(product);
     len = products.length;
   }
@@ -33,16 +36,14 @@ class ProductManager {
   void viewSingleProduct() {
     print("Enter the name of the Product: ");
     String? productName = stdin.readLineSync();
-    var product;
     for (int i = 0; i < len; i++) {
-      product = products[i];
-      if (productName == product.productName) {
+      if (productName == products[i].productName) {
         print("Product Name: ");
-        print(product.productName);
+        print(products[i].productName);
         print("Product Description: ");
-        print(product.productDescr);
+        print(products[i].productDescr);
         print("Product Price: ");
-        print(product.productPrice);
+        print(products[i].productPrice);
         return;
       }
     }
@@ -52,28 +53,30 @@ class ProductManager {
   void editProduct() {
     print("Enter the name of the Product: ");
     String? productName = stdin.readLineSync();
-    var product;
     for (int i = 0; i < len; i++) {
-      product = products[i];
-      if (productName == product.productName) {
+      if (productName == products[i].productName) {
         var choice;
         do {
           print("Press 0 for changing name: ");
           print("Press 1 for changing the description: ");
           print("Press 2 for changing the price: ");
-          choice = stdin.readByteSync();
-          if (choice == 0) {
+          print("Press 3 to quit ");
+
+          choice = stdin.readLineSync();
+          if (choice == '0') {
             print("Enter product name: ");
-            product[i].productName = stdin.readLineSync();
-          } else if (choice == 1) {
+            products[i].setProductName(stdin.readLineSync());
+          } else if (choice == '1') {
             print("Write product description: ");
-            product.productDescr = stdin.readLineSync();
-          } else if (choice == 2) {}
+            products[i].setProductDescr(stdin.readLineSync());
+          } else if (choice == '2') {}
           print("Enter the Price of the product: ");
-          product.productPrice = stdin.readLineSync();
-        } while (choice != 0 && choice != 1 && choice != 2);
+          products[i].setProductPrice(stdin.readLineSync());
+        } while (choice != '3');
+        return;
       }
     }
+    print("Product not found ");
   }
 
   void deleteProduct() {
