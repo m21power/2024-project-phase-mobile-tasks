@@ -69,9 +69,10 @@ class ProductManager {
           } else if (choice == '1') {
             print("Write product description: ");
             products[i].setProductDescr(stdin.readLineSync());
-          } else if (choice == '2') {}
-          print("Enter the Price of the product: ");
-          products[i].setProductPrice(stdin.readLineSync());
+          } else if (choice == '2') {
+            print("Enter the Price of the product: ");
+            products[i].setProductPrice(stdin.readLineSync());
+          }
         } while (choice != '3');
         return;
       }
